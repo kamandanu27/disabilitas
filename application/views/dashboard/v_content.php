@@ -67,7 +67,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3><?= $jumlah_pengajuan ?></h3>
+                <h3><?= $jumlah_diterima ?></h3>
 
                 <p>Total Pengajuan Di Tolak</p>
               </div>
