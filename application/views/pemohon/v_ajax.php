@@ -49,14 +49,14 @@ $(function () {
       });
 </script>
 <script>
-      $("#id_provinsi").change(function(){ 
+      $("#id_kecamatan").change(function(){ 
          var id = $(this).val();
          $.ajax({
             type: "post",
-            url: "<?= base_url() ?>kabkota/getkabkota/",
+            url: "<?= base_url() ?>kelurahan/getkelurahan/",
             data: "id="+ id,
             success: function(data){
-               $("#id_kabkota").html(data);
+               $("#id_kelurahan").html(data);
             }
          });
       });

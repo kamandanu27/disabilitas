@@ -18,32 +18,32 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url() ?>provinsi" class="nav-link">
-                    <i class="nav-icon fas fa-edit"></i>
-                    <p> Data Provinsi </p>
+                <a href="<?= base_url() ?>kecamatan" class="nav-link">
+                    <i class="nav-icon fas fa-home"></i>
+                    <p> Data Kecamatan </p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url() ?>kabkota" class="nav-link">
-                    <i class="nav-icon fas fa-edit"></i>
-                    <p> Data Kabkota </p>
+                <a href="<?= base_url() ?>kelurahan" class="nav-link">
+                    <i class="nav-icon fas fa-feather icon-home"></i>
+                    <p> Data Kelurahan </p>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="<?= base_url() ?>alatbantu" class="nav-link">
-                    <i class="nav-icon fas fa-edit"></i>
+                    <i class="nav-icon fas fa-shopping-cart"></i>
                     <p> Data Alat Bantu </p>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="<?= base_url() ?>pemohon" class="nav-link">
-                    <i class="nav-icon fas fa-edit"></i>
+                    <i class="nav-icon fas fa-suitcase"></i>
                     <p> Data Pemohon </p>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="<?= base_url() ?>pengajuan" class="nav-link">
-                    <i class="nav-icon fas fa-edit"></i>
+                    <i class="nav-icon fas fa-list-ul"></i>
                     <p> Data Pengajuan </p>
                 </a>
             </li>

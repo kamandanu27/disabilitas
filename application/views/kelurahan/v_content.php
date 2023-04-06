@@ -2,12 +2,12 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>Data Provinsi</h1>
+					<h1>Data Kelurahan</h1>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 					<li class="breadcrumb-item"><a href="">Dashboard</a></li>
-					<li class="breadcrumb-item active">Provinsi</li>
+					<li class="breadcrumb-item active">Kelurahan</li>
 					</ol>
 				</div>
 			</div>
@@ -20,7 +20,7 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<a href="<?= base_url() ?>provinsi/add" class="btn btn-primary btn-sm btntambahkriteria"><i class="fa fa-plus"></i> Tambah Data</a>
+							<a href="<?= base_url() ?>kelurahan/add" class="btn btn-primary btn-sm btntambahkriteria"><i class="fa fa-plus"></i> Tambah Data</a>
 						</div>
 
 						<div class="card-body">
@@ -43,7 +43,8 @@
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Nama Provinsi</th>
+										<th>Nama Kelurahan</th>
+										<th>Nama Kecamatan</th>
 										<th>Aksi</th>
 									</tr>
 								</thead>
@@ -51,12 +52,13 @@
                                     <?php $no=1; foreach($tabel as $row){ ?>
                                         <tr>
 											<td><?= $no++ ?></td>
-											<td><?= $row->nama_provinsi ?></td>
+											<td><?= $row->nama_kelurahan ?></td>
+											<td><?= $row->nama_kecamatan ?></td>
 											<td>
 
-												<a href="<?= base_url(); ?>provinsi/edit/<?= $row->id_provinsi ?>" provinsi="submit" class="btn btn-warning" ><i class="icofont icofont-edit"></i> Edit</a>
+												<a href="<?= base_url(); ?>kelurahan/edit/<?= $row->id_kelurahan ?>" kelurahan="submit" class="btn btn-warning" ><i class="icofont icofont-edit"></i> Edit</a>
 
-												<a provinsi="submit" class="btn btn-danger btnhapus" data-id="<?= $row->id_provinsi ?>" style="color: white;"><i class="icofont icofont-trash"></i> Hapus</a>
+												<a kelurahan="submit" class="btn btn-danger btnhapus" data-id="<?= $row->id_kelurahan ?>" style="color: white;"><i class="icofont icofont-trash"></i> Hapus</a>
 
 
 											</td>

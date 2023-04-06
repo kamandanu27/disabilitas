@@ -28,7 +28,7 @@ $(function () {
          })
             .then((willDelete) => {
             if (willDelete) {
-               window.location = "<?= base_url() ?>provinsi/delete/"+id;
+               window.location = "<?= base_url() ?>kelurahan/delete/"+id;
             } else {
                swal("Cancelled", "Batal :)", "error");
             }

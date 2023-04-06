@@ -28,7 +28,7 @@ $(function () {
          })
             .then((willDelete) => {
             if (willDelete) {
-               window.location = "<?= base_url() ?>kabkota/delete/"+id;
+               window.location = "<?= base_url() ?>kecamatan/delete/"+id;
             } else {
                swal("Cancelled", "Batal :)", "error");
             }

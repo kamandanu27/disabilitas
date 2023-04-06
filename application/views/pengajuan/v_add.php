@@ -56,10 +56,7 @@
                                     <input type="text" class="form-control" id="keterangan_pengajuan" name="keterangan_pengajuan">
                                 </div>
 
-								<div class="form-group">
-                                    <label for="exampleInputEmail1">Status pengajuan :</label>
-                                    <input type="text" class="form-control" id="status_pengajuan" name="status_pengajuan">
-                                </div>
+								
 								
 
                             </div>

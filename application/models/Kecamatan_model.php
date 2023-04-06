@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Provinsi_model extends CI_Model {
+class Kecamatan_model extends CI_Model {
 
 	public function __construct()
 	{
@@ -13,11 +13,11 @@ class Provinsi_model extends CI_Model {
 	{
 		if($where == null){
 			$this->db->select('*');
-			$this->db->from('tbl_provinsi');
+			$this->db->from('tbl_kecamatan');
 			$query = $this->db->get();
 		}else{
 			$this->db->select('*');
-			$this->db->from('tbl_provinsi');
+			$this->db->from('tbl_kecamatan');
 			$this->db->where($where);
 			$query = $this->db->get();
 		}
@@ -26,30 +26,30 @@ class Provinsi_model extends CI_Model {
 	}
 
 
-	public function detail($id_provinsi)
+	public function detail($id_kecamatan)
 	{
 		$this->db->select('*');
-		$this->db->from('tbl_provinsi');
-		$this->db->where('id_provinsi', $id_provinsi);
+		$this->db->from('tbl_kecamatan');
+		$this->db->where('id_kecamatan', $id_kecamatan);
 		$query = $this->db->get();
 		return $query;
 	}
 
 	public function insert($data)
 	{
-		$this->db->insert('tbl_provinsi', $data);
+		$this->db->insert('tbl_kecamatan', $data);
 	}
 
 	public function update($data)
 	{
-		$this->db->where('id_provinsi', $data['id_provinsi']);
-		$this->db->update('tbl_provinsi', $data);
+		$this->db->where('id_kecamatan', $data['id_kecamatan']);
+		$this->db->update('tbl_kecamatan', $data);
 	}
 
 	public function delete($data)
 	{
-		$this->db->where('id_provinsi', $data['id_provinsi']);
-		$this->db->delete('tbl_provinsi');
+		$this->db->where('id_kecamatan', $data['id_kecamatan']);
+		$this->db->delete('tbl_kecamatan');
 	}
 
 

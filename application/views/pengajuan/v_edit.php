@@ -61,9 +61,13 @@
 
 
 								<div class="form-group">
-                                    <label for="exampleInputEmail1">Status pengajuan :</label>
-                                    <input type="text" class="form-control" id="status_pengajuan" name="status_pengajuan" value="<?= $detail['status_pengajuan'] ?>">
-                                </div>
+                      				<label>Status Pengajuan :</label>
+                      				<select class="form-control" id="status_pengajuan" name="status_pengajuan">
+                        				<option value="<?= $detail['status_pengajuan'] ?>"><?= $detail['status_pengajuan'] ?></option>
+                        				<option>Diterima</option>
+                        				<option>Ditolak</option>
+                      				</select>
+                    			</div>
 
 
 

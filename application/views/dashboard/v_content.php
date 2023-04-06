@@ -27,7 +27,7 @@
                 <p>Total Pemohon</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="nav-icon fas fa-suitcase"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -42,7 +42,7 @@
                 <p>Total Pengajuan</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="nav-icon fas fa-list-ul"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -54,7 +54,7 @@
               <div class="inner">
                 <h3><?= $jumlah_diterima ?></h3>
 
-                <p>Total Pengajuan Di Terima</p>
+                <p>Total Pengajuan Diterima</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -67,9 +67,9 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3><?= $jumlah_diterima ?></h3>
+                <h3><?= $jumlah_ditolak ?></h3>
 
-                <p>Total Pengajuan Di Tolak</p>
+                <p>Total Pengajuan Ditolak</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -77,6 +77,7 @@
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+          </section>
           <!-- ./col -->
        
 

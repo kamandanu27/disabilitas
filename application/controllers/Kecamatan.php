@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Provinsi extends CI_Controller {
+class Kecamatan extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Provinsi_model', 'provinsi');
+		$this->load->model('Kecamatan_model', 'kecamatan');
 		$this->auth->cek();
 		
 	}
@@ -15,9 +15,9 @@ class Provinsi extends CI_Controller {
 	{
 		//echo 'ini adalah sofyan';
 		$data = array(
-			'tabel' 		=> $this->provinsi->tabel()->result(),
-			'content'		=> 'provinsi/v_content',
-			'ajax'	 		=> 'provinsi/v_ajax'
+			'tabel' 		=> $this->kecamatan->tabel()->result(),
+			'content'		=> 'kecamatan/v_content',
+			'ajax'	 		=> 'kecamatan/v_ajax'
 		);
 		$this->load->view('layout/v_wrapper', $data, FALSE);
 	}
@@ -26,8 +26,8 @@ class Provinsi extends CI_Controller {
 	{
 		//echo 'ini adalah add';
 		$data = array(
-			'content'		=> 'provinsi/v_add',
-			'ajax'	 		=> 'provinsi/v_ajax'
+			'content'		=> 'kecamatan/v_add',
+			'ajax'	 		=> 'kecamatan/v_ajax'
 		);
 		$this->load->view('layout/v_wrapper', $data, FALSE);
 	}
@@ -35,24 +35,24 @@ class Provinsi extends CI_Controller {
 	public function insert()
 	{
 		$data = array(
-			'nama_provinsi'		=> $this->input->post('nama_provinsi')
+			'nama_kecamatan'		=> $this->input->post('nama_kecamatan')
 			
 			
 		);
 
-		$q = $this->provinsi->insert($data);
+		$q = $this->kecamatan->insert($data);
 		$this->session->set_flashdata('success', '<i class="fa fa-check"></i> Selamat, Tambah data berhasil');
 
-		redirect(base_url('provinsi'),'refresh');
+		redirect(base_url('kecamatan'),'refresh');
 	}
 
 	public function edit($id)
 	{
 
 		$data = array(
-			'detail' 		=> 	$this->provinsi->detail($id)->row_array(),
-			'content'		=> 'provinsi/v_edit',
-			'ajax'	 		=> 'provinsi/v_ajax'
+			'detail' 		=> 	$this->kecamatan->detail($id)->row_array(),
+			'content'		=> 'kecamatan/v_edit',
+			'ajax'	 		=> 'kecamatan/v_ajax'
 		);
 		$this->load->view('layout/v_wrapper', $data, FALSE);
 		
@@ -63,26 +63,26 @@ class Provinsi extends CI_Controller {
 	{
 
 		$data = array(
-			'id_provinsi'			=> $this->input->post('id_provinsi'),
-			'nama_provinsi'		    => $this->input->post('nama_provinsi')
+			'id_kecamatan'			=> $this->input->post('id_kecamatan'),
+			'nama_kecamatan'		    => $this->input->post('nama_kecamatan')
 			
 		);
 		
 		$this->session->set_flashdata('success', '<i class="fa fa-check"></i> Selamat, Ubah data berhasil');
-		$this->provinsi->update($data);
-		redirect(base_url('provinsi'),'refresh');
+		$this->kecamatan->update($data);
+		redirect(base_url('kecamatan'),'refresh');
 	
 	}
 
 	public function delete($id)
 	{
 		$data = array(
-			'id_provinsi'	=> $id
+			'id_kecamatan'	=> $id
 		);
 		
-		$this->provinsi->delete($data);
+		$this->kecamatan->delete($data);
 		$this->session->set_flashdata('success', '<i class="fa fa-check"></i> Selamat, Hapus data berhasil');
-		redirect(base_url('provinsi'),'refresh');
+		redirect(base_url('kecamatan'),'refresh');
 
 	}
 

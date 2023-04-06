@@ -43,18 +43,18 @@
 
 								
 								<div class="form-group">
-                        			<label for="exampleInputEmail1">Nama Provinsi :</label>
-                        			<select id="id_provinsi" name="id_provinsi" class="form-control" required>
+                        			<label for="exampleInputEmail1">Nama Kecamatan :</label>
+                        			<select id="id_kecamatan" name="id_kecamatan" class="form-control" required>
 										<option value="">- Pilih -</option>
-										<?php foreach($provinsi as $row){ ?>
-										<option value="<?= $row->id_provinsi ?>"><?= $row->nama_provinsi ?></option>
+										<?php foreach($kecamatan as $row){ ?>
+										<option value="<?= $row->id_kecamatan ?>"><?= $row->nama_kecamatan ?></option>
 										<?php } ?>
 									</select>
                     			</div>
 
 								<div class="form-group">
-                      				<label>NAma Kabkota :</label>
-                      				<select class="form-control" id="id_kabkota" name="id_kabkota">
+                      				<label>NAma Kelurahan :</label>
+                      				<select class="form-control" id="id_kelurahan" name="id_kelurahan">
                         			<option>Pilih</option>
                       				</select>
                     			</div>
@@ -91,6 +91,21 @@
 								<div class="form-group">
                                     <label for="exampleInputEmail1">Password Pemohon :</label>
                                     <input type="text" class="form-control" id="password_pemohon" name="password_pemohon">
+                                </div>
+
+								<div class="form-group">
+                                    <label for="exampleInputEmail1">Nik Pendamping :</label>
+                                    <input type="text" class="form-control" id="nik_pendamping" name="nik_pendamping">
+                                </div>
+
+								<div class="form-group">
+                                    <label for="exampleInputEmail1">Nama Pendamping Pemohon :</label>
+                                    <input type="text" class="form-control" id="nama_pendamping" name="nama_pendamping">
+                                </div>
+
+								<div class="form-group">
+                                    <label for="exampleInputEmail1">Hubungan Pendamping :</label>
+                                    <input type="text" class="form-control" id="hubungan_pendamping" name="hubungan_pendamping">
                                 </div>
                                 
 

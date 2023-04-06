@@ -43,19 +43,19 @@
                                 </div>
 
 								<div class="form-group">
-                        			<label for="exampleInputEmail1">Nama Provinsi :</label>
-                        			<select id="id_provinsi" name="id_provinsi" class="form-control" required>
-										<option value="<?= $detail['id_provinsi'] ?>"><?= $detail['nama_provinsi'] ?></option>
+                        			<label for="exampleInputEmail1">Nama Kecamatan:</label>
+                        			<select id="id_kecamatan" name="id_kecamatan" class="form-control" required>
+										<option value="<?= $detail['id_kecamatan'] ?>"><?= $detail['nama_kecamatan'] ?></option>
 										<option value="">- Pilih -</option>
-										<?php foreach($provinsi as $row){ ?>
-										<option value="<?= $row->id_provinsi ?>"><?= $row->nama_provinsi ?></option>
+										<?php foreach($kecamatan as $row){ ?>
+										<option value="<?= $row->id_kecamatan ?>"><?= $row->nama_kecamatan ?></option>
 										<?php } ?>
 									</select>
                     			</div>
 								<div class="form-group">
-                      				<label>NAma Kabkota :</label>
-                      				<select class="form-control" id="id_kabkota" name="id_kabkota">
-                        			<option value="<?= $detail['id_kabkota'] ?>"><?= $detail['nama_kabkota'] ?></option>
+                      				<label>NAma Kelurahan :</label>
+                      				<select class="form-control" id="id_kelurahan" name="id_kelurahan">
+                        			<option value="<?= $detail['id_kelurahan'] ?>"><?= $detail['nama_kelurahan'] ?></option>
                         			</select>
                     			</div>
 								
@@ -91,6 +91,21 @@
 								<div class="form-group">
                                     <label for="exampleInputEmail1">Password pemohon :</label>
                                     <input type="text" class="form-control" id="password_pemohon" name="password_pemohon" value="<?= $detail['password_pemohon'] ?>">
+                                </div>
+
+								<div class="form-group">
+                                    <label for="exampleInputEmail1">Nik Pendamping :</label>
+                                    <input type="text" class="form-control" id="nik_pendamping" name="nik_pendamping" value="<?= $detail['nik_pendamping'] ?>">
+                                </div>
+
+								<div class="form-group">
+                                    <label for="exampleInputEmail1">Nama Pendamping :</label>
+                                    <input type="text" class="form-control" id="nama_pendamping" name="nama_pendamping" value="<?= $detail['nama_pendamping'] ?>">
+                                </div>
+
+								<div class="form-group">
+                                    <label for="exampleInputEmail1">Hubungan Pendamping :</label>
+                                    <input type="text" class="form-control" id="hubungan_pendamping" name="hubungan_pendamping" value="<?= $detail['hubungan_pendamping'] ?>">
                                 </div>
 
                             </div>

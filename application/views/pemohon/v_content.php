@@ -47,14 +47,17 @@
 										<th>Nik Pemohon</th>
 										<th>Nama Pemohon</th>
 										<th>Alamat Pemohon</th>
-										<th>Provinsi </th>
-										<th>Kabkota </th>
+										<th>Kecamatan </th>
+										<th>Kelurahan </th>
 										<th>No Telp Pemohon</th>
 										<th>Jenis Kelamin Pemohon</th>
 										<th>Tempat Lahir Pemohon</th>
 										<th>Tanggal Lahir Pemohon</th>
 										<th>Email Pemohon</th>
 										<th>Password Pemohon</th>
+										<th>Nik Pendamping</th>
+										<th>Nama Pendamping</th>
+										<th>Hubungan Pendamping</th>
 										<th>Aksi</th>
 									</tr>
 								</thead>
@@ -65,14 +68,17 @@
 											<td><?= $row->nik_pemohon ?></td>
 											<td><?= $row->nama_pemohon ?></td>
 											<td><?= $row->alamat_pemohon ?></td>
-											<td><?= $row->nama_provinsi ?></td>
-											<td><?= $row->nama_kabkota ?></td>
+											<td><?= $row->nama_kecamatan ?></td>
+											<td><?= $row->nama_kelurahan ?></td>
 											<td><?= $row->notlp_pemohon ?></td>
 											<td><?= $row->jeniskelamin_pemohon ?></td>
 											<td><?= $row->tempatlahir_pemohon ?></td>
 											<td><?= $row->tgllahir_pemohon ?></td>
 											<td><?= $row->email_pemohon ?></td>
 											<td><?= $row->password_pemohon ?></td>
+											<td><?= $row->nik_pendamping ?></td>
+											<td><?= $row->nama_pendamping ?></td>
+											<td><?= $row->hubungan_pendamping ?></td>
 											
 											<td>
 

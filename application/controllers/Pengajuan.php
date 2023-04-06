@@ -44,7 +44,7 @@ class Pengajuan extends CI_Controller {
 			'id_pemohon'		    => $this->input->post('id_pemohon'),
 			'id_alatbantu'	     	=> $this->input->post('id_alatbantu'),
 			'keterangan_pengajuan'	=> $this->input->post('keterangan_pengajuan'),
-			'status_pengajuan'		=> $this->input->post('status_pengajuan')
+			'status_pengajuan'		=> 'Proses'
 			
 		
 		);

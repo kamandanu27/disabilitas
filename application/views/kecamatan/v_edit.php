@@ -2,12 +2,12 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>Data Provinsi</h1>
+					<h1>Data Kecamatan</h1>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 					<li class="breadcrumb-item"><a href="">Dashboard</a></li>
-					<li class="breadcrumb-item active">Provinsi</li>
+					<li class="breadcrumb-item active">Kecamatan</li>
 					</ol>
 				</div>
 			</div>
@@ -20,22 +20,26 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<h3> Tambah Data Provinsi </h3>
+							<h3> Edit Data Kecamatan </h3>
 						</div>
 
-						<form action="<?php echo base_url() ?>provinsi/insert" method="post">
+						<form action="<?php echo base_url() ?>kecamatan/update" method="post">
                             <div class="card-body">
 
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Nama provinsi :</label>
-                                    <input provinsi="text" class="form-control" id="nama_provinsi" name="nama_provinsi">
+                                
+								<div class="form-group">
+                                    <label for="exampleInputEmail1">Nama Kecamatan :</label>
+                                    <input type="text" class="form-control" id="nama_kecamatan" name="nama_kecamatan" value="<?= $detail['nama_kecamatan'] ?>">
+									<input type="hidden" class="form-control" id="id_kecamatan" name="id_kecamatan" value="<?= $detail ['id_kecamatan']?>">
+									
                                 </div>
 
+                                
 
                             </div>
 
                             <div class="card-footer">
-                                <button provinsi="submit" class="btn btn-primary">Submit</button>
+                                <button kecamatan="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>
 					</div>
