@@ -18,10 +18,7 @@ class Dashboard extends CI_Controller {
 		$data = array(
 			'jumlah_pemohon' 		=> $this->pemohon->tabel()->num_rows(),
 			'jumlah_pengajuan' 		=> $this->pengajuan->tabel()->num_rows(),
-			'penambahan'			=> 1+2,
-			'pengurangan'			=> 2-1,
-			'perkalian'				=> 2*2,
-			'pembagian'				=> 4/2,
+			'jumlah_diterima' 		=> $this->pengajuan->tabel('tbl_pengajuan.status_pengajuan = "Di Terima"')->num_rows(),
 			'content'				=> 'dashboard/v_content',
 			'ajax'	 				=> 'dashboard/v_ajax'
 		);
