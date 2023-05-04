@@ -23,7 +23,23 @@
 							<h3> Edit Data Pemohon </h3>
 						</div>
 
-						<form action="<?php echo base_url() ?>pemohon/update" method="post" enctype="multipart/form-data">
+						<?php
+							echo validation_errors('<div class="alert alert-danger alert-dismissible">','</div>');
+							if ($this->session->flashdata('success'))
+							{
+								echo '<div class="alert alert-success alert-dismissible " role="alert">';
+								echo $this->session->flashdata('success');
+								echo '</div>';
+							}
+							if ($this->session->flashdata('error'))
+							{
+								echo '<div class="alert alert-danger alert-dismissible " role="alert">';
+								echo $this->session->flashdata('error');
+								echo '</div>';
+							}
+						?>
+
+						<form action="<?php echo base_url() ?>profil/updatepemohon" method="post" enctype="multipart/form-data">
                             <div class="card-body">
 
                                 <div class="form-group">

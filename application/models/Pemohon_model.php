@@ -58,6 +58,20 @@ class Pemohon_model extends CI_Model {
 		$this->db->delete('tbl_pemohon');
 	}
 
+	public function login($username,$enpass)
+	{
+		$username = $this->db->escape_str($username);
+		$password = $this->db->escape_str($enpass);
+		$this->db->select('*');
+		$this->db->from('tbl_pemohon');
+		$this->db->where(array(
+			'email_pemohon' => $username,
+			'password_pemohon' => $password
+		));
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 
 
 }

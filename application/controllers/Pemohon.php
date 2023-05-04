@@ -9,7 +9,6 @@ class Pemohon extends CI_Controller {
 		$this->load->model('Pemohon_model', 'pemohon');
 		$this->load->model('Kecamatan_model', 'kecamatan');
 		$this->load->model('Kelurahan_model', 'kelurahan');
-		$this->auth->cek();
 		
 		
 	}
@@ -39,6 +38,15 @@ class Pemohon extends CI_Controller {
 
 	public function insert()
 	{
+		$image								= time().str_replace(" ","",$_FILES["foto_pemohon"]['name']);
+		$config['upload_path'] 				= './public/image/upload/pemohon/';
+		$config['allowed_types'] 			= 'gif|jpg|png|jpeg';
+		$config['max_size']  				= '2500';
+		$config['file_name']  				= $image;
+
+		$this->load->library('upload', $config);
+		$this->upload->do_upload('foto_pemohon');
+
 		$data = array(
 			'nik_pemohon'		    => $this->input->post('nik_pemohon'),
 			'nama_pemohon'		    => $this->input->post('nama_pemohon'),
@@ -48,6 +56,7 @@ class Pemohon extends CI_Controller {
 			'jeniskelamin_pemohon'	=> $this->input->post('jeniskelamin_pemohon'),
 			'tempatlahir_pemohon'	=> $this->input->post('tempatlahir_pemohon'),
 			'tgllahir_pemohon'		=> $this->input->post('tgllahir_pemohon'),
+			'foto_pemohon'			=> $image,
 			'email_pemohon'		    => $this->input->post('email_pemohon'),
 			'password_pemohon'		=> $this->input->post('password_pemohon'),
 			'nik_pendamping'		=> $this->input->post('nik_pendamping'),
@@ -58,8 +67,8 @@ class Pemohon extends CI_Controller {
 		);
 
 		$q = $this->pemohon->insert($data);
-		$this->session->set_flashdata('success', '<i class="fa fa-check"></i> Selamat, Tambah data berhasil');
-		redirect(base_url('pemohon'),'refresh');
+		$this->session->set_flashdata('success', '<i class="fa fa-check"></i> Selamat, Akun anda berhasil didaftarkan');
+		redirect(base_url('login'),'refresh');
 	}
 
 	public function edit($id)
@@ -79,6 +88,22 @@ class Pemohon extends CI_Controller {
 
 	public function update()
 	{
+		if($_FILES["foto_pemohon"]['name'] !== ""){
+			$image								= time().str_replace(" ","",$_FILES["foto_pemohon"]['name']);
+			$config['upload_path'] 				= './public/image/upload/pemohon/';
+			$config['allowed_types'] 			= 'gif|jpg|png|jpeg';
+			$config['max_size']  				= '2500';
+			$config['file_name']  				= $image;
+
+			$this->load->library('upload', $config);
+			$this->upload->do_upload('foto_pemohon');
+
+			$data = array(
+				'id_pemohon'			=> $this->input->post('id_pemohon'),
+				'foto_pemohon'			=> $image,
+			);
+			$this->pemohon->update($data);
+		}
 
 		$data = array(
 			'id_pemohon'			=> $this->input->post('id_pemohon'),
@@ -98,8 +123,8 @@ class Pemohon extends CI_Controller {
 			
 		);
 
-		$this->session->set_flashdata('success', '<i class="fa fa-check"></i> Selamat, Ubah data berhasil');	
 		$this->pemohon->update($data);
+		$this->session->set_flashdata('success', '<i class="fa fa-check"></i> Selamat, Ubah data berhasil');	
 		redirect(base_url('pemohon'),'refresh');
 	
 	}

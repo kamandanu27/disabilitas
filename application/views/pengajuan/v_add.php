@@ -31,15 +31,39 @@
                                     <input type="date" class="form-control" id="tgl_pengajuan" name="tgl_pengajuan">
                                 </div>
 
+								<?php if($this->session->userdata('level') == 'Admin'){ ?>
 								<div class="form-group">
                                     <label for="exampleInputEmail1">Nama Pemohon :</label>
                                     <select id="id_pemohon" name="id_pemohon" class="form-control" required>
 										<option value="">- Pilih -</option>
-										<?php foreach($pemohon as $row){ ?>
-											<option value="<?= $row->id_pemohon ?>"><?= $row->nama_pemohon ?></option>
+										<?php foreach($pemohon as $row){ 
+											$pemohon = $this->pengajuan->akhir($row->id_pemohon)->row_array();
+											if($pemohon == null){
+												$disabled = '';
+											}else{
+												if(date('Y-m-d') < date('Y-m-d', strtotime('+2 year', strtotime($pemohon['tgl_pengajuan'])))){
+													$disabled = 'disabled';
+												}else{
+													$disabled = '';
+												}
+											}
+										?>
+											<option value="<?= $row->id_pemohon ?>" <?= $disabled ?>><?= $row->nama_pemohon ?></option>
 										<?php } ?>
 									</select>
                                 </div>
+								<?php }else{ ?>
+								<div class="form-group">
+									<label for="exampleInputEmail1">Nama Pemohon :</label>
+									<select class="form-control" disabled>
+										<option value="">- Pilih -</option>
+										<?php foreach($pemohon as $row){ ?>
+											<option value="<?= $row->id_pemohon ?>" <?php if($row->id_pemohon == $this->session->userdata('id')) { ?> selected="selected"<?php } ?> ><?= $row->nama_pemohon ?></option>
+										<?php } ?>
+									</select>
+									 <input type="hidden" class="form-control" id="id_pemohon" name="id_pemohon" value="<?= $this->session->userdata('id') ?>">
+								</div>
+								<?php } ?>
 
 								<div class="form-group">
                                     <label for="exampleInputEmail1">Nama Alat Bantu :</label>

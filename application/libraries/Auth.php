@@ -10,6 +10,7 @@ class Auth {
 		$this->CI =& get_instance();
 
 		$this->CI->load->model('User_model','user');
+		$this->CI->load->model('Pemohon_model','pemohon');
 	}
 
 	public function login_user($username,$password)
@@ -20,7 +21,29 @@ class Auth {
 			$data = [
 				'id'				=> $check->id_user,
 				'nama'				=> $check->nama_user,
-				//'level'				=> $check->level_user,
+				'foto'				=> $check->foto_user,
+				'level'				=> 'Admin',
+				'login'				=> true
+			];
+			
+			$this->CI->session->set_userdata($data);
+			redirect(base_url('dashboard'),'refresh');
+		}
+		else{
+			return 0;
+		}
+	}
+
+	public function login_pemohon($username,$password)
+	{
+		$check = $this->CI->pemohon->login($username,$password);
+		if ($check)
+		{
+			$data = [
+				'id'				=> $check->id_pemohon,
+				'nama'				=> $check->nama_pemohon,
+				'foto'				=> $check->foto_pemohon,
+				'level'				=> 'Pemohon',
 				'login'				=> true
 			];
 			

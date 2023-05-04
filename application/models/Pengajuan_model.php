@@ -58,6 +58,17 @@ class Pengajuan_model extends CI_Model {
 		$this->db->delete('tbl_pengajuan');
 	}
 
+	public function akhir($id_pemohon)
+	{
+		$this->db->select('*');
+		$this->db->from('tbl_pengajuan');
+		$this->db->order_by('tgl_pengajuan','desc');
+    	$this->db->limit(1); 
+		$this->db->where('id_pemohon', $id_pemohon);
+		$query = $this->db->get();
+		return $query;
+	}
+
 
 
 }

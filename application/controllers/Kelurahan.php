@@ -8,7 +8,6 @@ class Kelurahan extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Kelurahan_model', 'kelurahan');
 		$this->load->model('Kecamatan_model', 'kecamatan');
-		$this->auth->cek();
 		
 	}
 
@@ -96,7 +95,7 @@ class Kelurahan extends CI_Controller {
 		$id_kecamatan = $this->input->post('id');
 		$data = $this->kelurahan->tabel('tbl_kelurahan.id_kecamatan = '.$id_kecamatan.'')->result();
 		echo "
-				<option value=''>Pilih</option>
+				<option value=''>Pilih Kelurahan</option>
 			";
 		foreach($data as $row){
 			echo "

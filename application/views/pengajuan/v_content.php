@@ -20,7 +20,7 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<a href="<?= base_url() ?>pengajuan/add" class="btn btn-primary btn-sm btntambahkriteria"><i class="fa fa-plus"></i> Tambah Data</a>
+							<a href="<?= base_url() ?>pengajuan/add" class="btn btn-primary btn-sm btntambahkriteria <?= $disabled ?>"><i class="fa fa-plus"></i> Tambah Data</a>
 						</div>
 
 						<div class="card-body">

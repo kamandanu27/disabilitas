@@ -4,8 +4,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>APP PERTAMINI</title>
-        <link rel="icon" type="image/x-icon" href="img/pertamina.png">
+        <title>Dinsos Kab Garut</title>
+        <link rel="icon" type="image/x-icon" href="<?= base_url() ?>public/image/logogarut.png">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <link rel="stylesheet" href="<?= base_url() ?>public/adminlte/plugins/fontawesome-free/css/all.min.css">
@@ -21,20 +21,21 @@
         <link rel="stylesheet" href="<?= base_url() ?>public/adminlte/plugins/daterangepicker/daterangepicker.css">
         <link rel="stylesheet" href="<?= base_url() ?>public/adminlte/plugins/summernote/summernote-bs4.min.css">
     </head>
-    <body class="hold-transition skin-red-light fixed sidebar-mini">
+    <body class="hold-transition skin-primary-light fixed sidebar-mini">
         <div class="wrapper">
-            <div class="preloader flex-column justify-content-center align-items-center">
-                <img class="animation__shake" src="<?= base_url() ?>public/adminlte/dist/img/pertamina.png" alt="AdminLTELogo" height="60" width="60">
+            <div class="preloader flex-column justify-content-center align-items-center ">
+                <img class="animation__shake" src="<?= base_url() ?>public/image/logogarut.png" alt="AdminLTELogo" height="60" width="60">
             </div>
 
-            <nav class="main-header navbar navbar-expand navbar-light">
+            <nav class="main-header navbar navbar-expand navbar-light bg-danger">
                 <?php include "v_head.php" ?>
             </nav>
 
-            <aside class="main-sidebar sidebar-dark-primary elevation-4">
-                <a href="index3.html" class="brand-link text-center">
-                <span class="brand-text font-weight-light"><b>PERTAMINI</b></span>
+            <aside class="main-sidebar sidebar-light-danger elevation-4">
+                <a href="index3.html" class="brand-link bg-danger text-center">
+                <span class="brand-text font-weight-light"><b>DINSOS KAB GARUT</b></span>
                 </a>
+                
                 <?php include "v_sidebar.php" ?>
             </aside>
 

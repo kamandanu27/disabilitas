@@ -7,6 +7,8 @@ class Login extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('User_model', 'user');
+		$this->load->model('Kecamatan_model', 'kecamatan');
+		$this->load->model('Kelurahan_model', 'kelurahan');
 		ob_start();
 	}
 
@@ -14,7 +16,8 @@ class Login extends CI_Controller {
 	{
 
 		$data = array(
-			'title'	=> 'Login | SILAGAK'
+			'kecamatan' 		=> $this->kecamatan->tabel()->result(),
+			'kelurahan' 		=> $this->kelurahan->tabel()->result(),
 		);
 		$this->load->view('login', $data, FALSE);
 	}
@@ -22,19 +25,17 @@ class Login extends CI_Controller {
 	public function login()
 	{
 
-			// $cekdata = 0;
-			// if($cekdata == '1'){
-			// 	echo 'Ada';
-			// }else{
-			// 	echo 'Tidak ada';
-			// }
-
 			$username    = $this->input->post('username');
 			$password    = $this->input->post('password');
 
 			$cekk = $this->auth->login_user($username,$password);
+			$cek_pemohon = $this->auth->login_pemohon($username,$password);
 			
 			if($cekk == 0){
+				$this->session->set_flashdata('danger', '<i class="fa fa-warning"></i>
+				Maaf, Username dan password tidak sesuai.');
+				redirect(base_url('login'),'refresh');
+			}elseif($cek_pemohon == 0){
 				$this->session->set_flashdata('danger', '<i class="fa fa-warning"></i>
 				Maaf, Username dan password tidak sesuai.');
 				redirect(base_url('login'),'refresh');

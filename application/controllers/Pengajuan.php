@@ -16,12 +16,32 @@ class Pengajuan extends CI_Controller {
 
 	public function index()
 	{
-		//echo 'ini adalah sofyan';
-		$data = array(
-			'tabel' 		=> $this->pengajuan->tabel()->result(),
-			'content'		=> 'pengajuan/v_content',
-			'ajax'	 		=> 'pengajuan/v_ajax'
-		);
+		if($this->session->userdata('level') == 'Admin'){
+			$data = array(
+				'tabel' 		=> $this->pengajuan->tabel()->result(),
+				'disabled'		=> '',
+				'content'		=> 'pengajuan/v_content',
+				'ajax'	 		=> 'pengajuan/v_ajax'
+			);
+		}else{
+			$pemohon = $this->pengajuan->akhir($this->session->userdata('id'))->row_array();
+			if($pemohon == null){
+				$disabled = '';
+			}else{
+				if(date('Y-m-d') < date('Y-m-d', strtotime('+2 year', strtotime($pemohon['tgl_pengajuan'])))){
+					$disabled = 'disabled';
+				}else{
+					$disabled = '';
+				}
+			}
+
+			$data = array(
+				'tabel' 		=> $this->pengajuan->tabel('tbl_pengajuan.id_pemohon = '.$this->session->userdata('id').'')->result(),
+				'disabled'		=> $disabled,
+				'content'		=> 'pengajuan/v_content',
+				'ajax'	 		=> 'pengajuan/v_ajax'
+			);
+		}
 		$this->load->view('layout/v_wrapper', $data, FALSE);
 	}
 
@@ -82,8 +102,8 @@ class Pengajuan extends CI_Controller {
 			
 		);
 
-		$this->session->set_flashdata('success', '<i class="fa fa-check"></i> Selamat, Ubah data berhasil');	
 		$this->pengajuan->update($data);
+		$this->session->set_flashdata('success', '<i class="fa fa-check"></i> Selamat, Ubah data berhasil');	
 		redirect(base_url('pengajuan'),'refresh');
 	
 	}

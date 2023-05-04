@@ -14,15 +14,25 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-		//echo 'ini adalah sofyan';
-		$data = array(
-			'jumlah_pemohon' 		=> $this->pemohon->tabel()->num_rows(),
-			'jumlah_pengajuan' 		=> $this->pengajuan->tabel()->num_rows(),
-			'jumlah_diterima' 		=> $this->pengajuan->tabel('tbl_pengajuan.status_pengajuan = "Diterima"')->num_rows(),
-			'jumlah_ditolak' 		=> $this->pengajuan->tabel('tbl_pengajuan.status_pengajuan = "Ditolak"')->num_rows(),
-			'content'				=> 'dashboard/v_content',
-			'ajax'	 				=> 'dashboard/v_ajax'
-		);
+		if($this->session->userdata('level') == 'Admin'){
+			$data = array(
+				'jumlah_pengajuan' 		=> $this->pengajuan->tabel()->num_rows(),
+				'jumlah_proses' 		=> $this->pengajuan->tabel('tbl_pengajuan.status_pengajuan = "Proses"')->num_rows(),
+				'jumlah_diterima' 		=> $this->pengajuan->tabel('tbl_pengajuan.status_pengajuan = "Diterima"')->num_rows(),
+				'jumlah_ditolak' 		=> $this->pengajuan->tabel('tbl_pengajuan.status_pengajuan = "Ditolak"')->num_rows(),
+				'content'				=> 'dashboard/v_content',
+				'ajax'	 				=> 'dashboard/v_ajax'
+			);
+		}else{
+			$data = array(
+				'jumlah_pengajuan' 		=> $this->pengajuan->tabel(' tbl_pengajuan.id_pemohon = '.$this->session->userdata('id').'')->num_rows(),
+				'jumlah_proses' 		=> $this->pengajuan->tabel('tbl_pengajuan.status_pengajuan = "Proses" and tbl_pengajuan.id_pemohon = '.$this->session->userdata('id').'')->num_rows(),
+				'jumlah_diterima' 		=> $this->pengajuan->tabel('tbl_pengajuan.status_pengajuan = "Diterima" and tbl_pengajuan.id_pemohon = '.$this->session->userdata('id').'')->num_rows(),
+				'jumlah_ditolak' 		=> $this->pengajuan->tabel('tbl_pengajuan.status_pengajuan = "Ditolak" and tbl_pengajuan.id_pemohon = '.$this->session->userdata('id').'')->num_rows(),
+				'content'				=> 'dashboard/v_content',
+				'ajax'	 				=> 'dashboard/v_ajax'
+			);
+		}
 		$this->load->view('layout/v_wrapper', $data, FALSE);
 	}
 

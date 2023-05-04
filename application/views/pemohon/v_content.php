@@ -20,7 +20,6 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<a href="<?= base_url() ?>pemohon/add" class="btn btn-primary btn-sm btntambahkriteria"><i class="fa fa-plus"></i> Tambah Data </a>
 						</div>
 
 						<div class="card-body">
@@ -44,6 +43,7 @@
 								<thead>
 									<tr>
 										<th>No</th>
+										<th>Foto</th>
 										<th>Nik Pemohon</th>
 										<th>Nama Pemohon</th>
 										<th>Alamat Pemohon</th>
@@ -65,6 +65,7 @@
                                     <?php $no=1; foreach($tabel as $row){ ?>
                                         <tr>
 											<td><?= $no++ ?></td>
+											<td><img src="<?= base_url() ?>public/image/upload/pemohon/<?= $row->foto_pemohon ?>" width="75px"  alt="User Image"></td>
 											<td><?= $row->nik_pemohon ?></td>
 											<td><?= $row->nama_pemohon ?></td>
 											<td><?= $row->alamat_pemohon ?></td>
